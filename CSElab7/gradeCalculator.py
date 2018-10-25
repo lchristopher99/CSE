@@ -75,7 +75,7 @@ def main():
     g = getLetterGrade(average)
     # Prints overall average grade with letter grade
     print('Average Grade: ' + str(g) + ' - ' + str(average))
-
+ 
   # Receives file name from user and tests whether it exists or not
   def getFile():
     while True:
