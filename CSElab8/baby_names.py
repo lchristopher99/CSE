@@ -6,6 +6,10 @@
 #
 # Program Description: Program opens a list of popular baby names and ranks a user inputed name against the US most popular names.
 
+
+### Be sure baby_names.py and baby_names folder are within same enclosing folder
+
+
 def main():
   # searches through files and checks for match between user input name and list name
   def find_name(name, gender, file_name): 
