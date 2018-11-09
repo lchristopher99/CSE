@@ -7,13 +7,17 @@
 # Program Description: Program calculates appropriate amount of bills and coins for a user input amount.
 
 
+# takes the original amount as paramter
 def calcCoins(am):
+  # rounds the amount to the second decimal place and floor divides by denom amount. assigns to var
   quarters = round(am, 2) // .25
   
+  # if above var is divisible by denom, send amount of times divisible and denom type to displayCoins. Subtract amount of denom divided from original amount.
   if quarters != 0:
     displayCoins(int(quarters), 'quarters')
     am = am - (.25 * quarters)
   
+  # same functionality as above
   dimes = round(am, 2) // .10
   
   if dimes != 0:
@@ -31,16 +35,21 @@ def calcCoins(am):
   if pennies != 0:
     displayCoins(int(pennies), 'pennies')
 
+# Takes amount and denom as parameter and prints it out
 def displayCoins(x, y):
   print(x, y)
 
+# takes the original amount as paramter
 def calcBills(am):
+  # rounds the amount to the second decimal place and floor divides by denom amount. assigns to var
   hundred = am // 100
 
+  # if above var is divisible by denom, send amount of times divisible and denom type to displayCoins. Subtract amount of denom divided from original amount.
   if hundred != 0:
     displayBills(int(hundred), 'hundreds')
     am = am - (100 * hundred)
 
+  # same functionality as above
   fifty = am // 50
 
   if fifty != 0:
@@ -68,9 +77,11 @@ def calcBills(am):
   if int(am) != 0:
     displayBills(int(am), 'ones')
 
+# Takes amount and denom as parameter and prints it out
 def displayBills(x, y):
   print(x, y)
 
+# Checks string to ensure user input is a number. Returns error and asks user to retry if not
 def checkStr():
   while True:
     try:
@@ -81,6 +92,7 @@ def checkStr():
       print('Not a valid number!')
 
   
+# Main functions calls to check string first then passes the amount returned to calc bills
 def main():
   print('Currency Calculator')
   print()
@@ -88,6 +100,7 @@ def main():
   am = checkStr()
   calcBills(am)
 
+  # to retrieve decimal amount the amount % 1 returns just the decimal which is then passed to calcCoins
   dec = am % 1
   calcCoins(round(dec, 2))
 
